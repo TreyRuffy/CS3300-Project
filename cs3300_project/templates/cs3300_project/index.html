@@ -5,4 +5,14 @@
 {% block content %}
 <h1>Home Page</h1>
 
+{% if horses %}
+
+{% for horse in horses %}
+<a href="{% url 'horse' horse.id %}">{{ horse.name }}</p>
+{% endfor %}
+
+{% else %}
+<p>No horses found</p>
+{% endif %}
+
 {% endblock %}
