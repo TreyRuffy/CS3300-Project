@@ -6,7 +6,8 @@ from cs3300_project.models import Horse
 # Create your views here.
 def index(request):
     context = {
-        'horses': Horse.objects.all()
+        'horses': Horse.objects.all(),
+        'active': 'Home'
     }
     return render(request, 'cs3300_project/index.html', context)
 
@@ -15,6 +16,19 @@ def horse(request, horse_id):
         'horse': Horse.objects.get(id=horse_id)
     }
     return render(request, 'cs3300_project/horse.html', context)
+
+def add_horse(request):
+    form = HorseForm()
+    if request.method == 'POST':
+        form = HorseForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return index(request)
+    context = {
+        'form': form,
+        'active': 'Add Horse'
+    }
+    return render(request, 'cs3300_project/edit_horse.html', context)
 
 def edit_horse(request, horse_id):
     form = HorseForm(instance=Horse.objects.get(id=horse_id))
@@ -26,9 +40,14 @@ def edit_horse(request, horse_id):
     context = {
         'form': form,
         'project': Horse.objects.get(id=horse_id),
-        'horse': Horse.objects.get(id=horse_id)
+        'horse': Horse.objects.get(id=horse_id),
+        'active': 'Edit Horse'
     }
     return render(request, 'cs3300_project/edit_horse.html', context)
+
+def delete_horse(request, horse_id):
+    Horse.objects.get(id=horse_id).delete()
+    return index(request)
 
 def pedigree(request, horse_id):
     context = {

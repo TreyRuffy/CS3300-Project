@@ -3,7 +3,7 @@
 
 <!-- Replace block content in base_template.html -->
 {% block content %}
-<h1>Home Page</h1>
+<h1 class="text-2xl font-bold">Home Page <a href="{% url 'add_horse' %}" class="btn btn-circle btn-success btn-sm" aria-description="Add horse">+</a></h1>
 
 {% if horses %}
 

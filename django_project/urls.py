@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', include('cs3300_project.urls')),
+    path("__reload__/", include("django_browser_reload.urls")),
 ]

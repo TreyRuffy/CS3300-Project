@@ -2,9 +2,12 @@
 
 {% block content %}
     <h1>Horse: {{ horse.name }}</h1>
+    {% if horse.image %}
     <img src="{{ horse.image.url }}" alt="{{ horse.name }}" width="200" height="200" />
+    {% endif %}
     <p>Short Description: {{ horse.short_description }}</p>
     <p>Long Description: {{ horse.long_description }}</p>
-    <a href="{% url 'pedigree' horse.id %}">Pedigree</a>
+    <a href="{% url 'pedigree' horse.id %}" class="btn-success btn btn-sm">Pedigree</a>
     <a href="{% url 'edit_horse' horse.id %}" class="btn-primary btn btn-sm" role="button">Edit</a>
+    <a href="{% url 'delete_horse' horse.id %}" class="btn btn-error btn-sm" role="button">Delete</a>
 {% endblock %}

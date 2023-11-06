@@ -6,7 +6,7 @@ class Horse(models.Model):
     name = models.CharField(max_length=200)
     short_description = models.TextField(max_length=1000)
     long_description = models.TextField(max_length=10000)
-    image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
     pedigree = models.ForeignKey('Pedigree', on_delete=models.CASCADE, null=True, blank=True)
     def __str__(self):
         return self.name
