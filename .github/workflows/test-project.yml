@@ -23,4 +23,5 @@ jobs:
                   pip install -r requirements.txt
             - name: Test with Django
               run: |
+                  mkdir .\cs3300_project\static
                   python manage.py test
