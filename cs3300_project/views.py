@@ -18,7 +18,6 @@ def index(request: HttpRequest):
     }
     return render(request, 'cs3300_project/index.html', context)
 
-@login_required(login_url='login')
 def horse(request: HttpRequest, horse_id):
     context = {
         'horse': Horse.objects.get(id=horse_id),
@@ -26,7 +25,6 @@ def horse(request: HttpRequest, horse_id):
     }
     return render(request, 'cs3300_project/horse.html', context)
 
-@login_required(login_url='login')
 def add_horse(request: HttpRequest):
     form = HorseForm()
     if request.method == 'POST':
@@ -41,7 +39,6 @@ def add_horse(request: HttpRequest):
     }
     return render(request, 'cs3300_project/edit_horse.html', context)
 
-@login_required(login_url='login')
 def edit_horse(request: HttpRequest, horse_id):
     form = HorseForm(instance=Horse.objects.get(id=horse_id))
     if request.method == 'POST':
@@ -63,7 +60,6 @@ def delete_horse(request: HttpRequest, horse_id):
     Horse.objects.get(id=horse_id).delete()
     return index(request)
 
-@login_required(login_url='login')
 def pedigree(request: HttpRequest, horse_id):
     context = {
         'horse': Horse.objects.get(id=horse_id),
