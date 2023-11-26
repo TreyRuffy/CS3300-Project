@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -22,3 +23,8 @@ class Pedigree(models.Model):
     dam = models.ForeignKey(Horse, on_delete=models.CASCADE, related_name='dam')
     def __str__(self):
         return "Sire: " + self.sire.name + " Dam: " + self.dam.name
+
+class Account(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.username

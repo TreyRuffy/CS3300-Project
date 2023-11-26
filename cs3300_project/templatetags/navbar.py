@@ -32,9 +32,27 @@ navbar_items = [
                 'url': 'delete_horse'
             }
         ]
+    },
+    {
+        'title': 'Account',
+        'url': 'account',
+        'children': [
+            {
+                'title': 'Login',
+                'url': 'login'
+            },
+            {
+                'title': 'Logout',
+                'url': 'logout'
+            },
+            {
+                'title': 'Register',
+                'url': 'register'
+            }
+        ]
     }
 ]
 
 @register.inclusion_tag('cs3300_project/includes/navbar.html')
-def navbar(active=None):
-    return {"navbar_items": navbar_items, 'active': active}
+def navbar(active=None, username=None):
+    return {"navbar_items": navbar_items, 'active': active, 'username': username}

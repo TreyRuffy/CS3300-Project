@@ -15,6 +15,10 @@ urlpatterns = [
     path('horse/edit/<int:horse_id>', views.edit_horse, name='edit_horse'),
     path('horse/delete/<int:horse_id>', views.delete_horse, name='delete_horse'),
     path('pedigree/<int:horse_id>', views.pedigree, name='pedigree'),
+    path('login', views.loginPage, name='login'),
+    path('account', views.account, name='account'),
+    path('logout', views.logoutPage, name='logout'),
+    path('register', views.register, name='register'),
 ]
 
 if settings.DEBUG:

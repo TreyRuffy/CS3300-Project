@@ -30,7 +30,7 @@
       <a class="btn btn-ghost normal-case text-xl" href="{% url 'index' %}" tabindex="-1">Horses</a>
     </div>
     <div class="navbar-end hidden lg:flex">
-      <ul class="menu menu-horizontal px-1">
+      <ul class="menu menu-horizontal px-1 z-[1]">
         {% for item in navbar_items %}
           {% if item.children %}
             <li>
@@ -49,5 +49,6 @@
         {% endfor %}
       </ul>
       <button class="btn glass btn-sm" data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">Theme</button>
+      <span class="mx-2">{{username}}</span>
     </div>
   </div>

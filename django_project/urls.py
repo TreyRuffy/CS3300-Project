@@ -22,5 +22,4 @@ urlpatterns = [
 
     path('', include('cs3300_project.urls')),
     path("__reload__/", include("django_browser_reload.urls")),
-    path('accounts/', include('django.contrib.auth.urls')),
 ]
