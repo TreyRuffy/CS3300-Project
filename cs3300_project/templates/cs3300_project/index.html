@@ -3,6 +3,16 @@
 
 <!-- Replace block content in base_template.html -->
 {% block content %}
-<h1>Home Page</h1>
+    <h1 class="text-2xl font-bold">Home Page {% if user.is_authenticated %}<a href="{% url 'add_horse' %}" class="btn btn-circle btn-success btn-sm shadow-sm hover:btn-success-focus hover:shadow-md hover:shadow-accent-focus shadow-accent-focus" aria-description="Add horse">+</a>{% endif %}</h1>
+
+{% if horses %}
+
+{% for horse in horses %}
+<a href="{% url 'horse' horse.id %}">{{ horse.name }}</p>
+{% endfor %}
+
+{% else %}
+<p>No horses found</p>
+{% endif %}
 
 {% endblock %}

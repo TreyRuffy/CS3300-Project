@@ -1,0 +1,10 @@
+{% extends "cs3300_project/base_template.html" %}
+
+{% block content %}
+    <h1>{{ horse.name }}'s Pedigree</h1>
+    {% if horse.pedigree %}
+        <p>{{ horse.name }}'s dad is {{ horse.pedigree.sire.name }} and his mom is {{ horse.pedigree.dam }}.</p>
+    {% else %}
+        <p>{{ horse.name }} has no pedigree.</p>
+    {% endif %}
+{% endblock %}

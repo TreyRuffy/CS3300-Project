@@ -1,0 +1,11 @@
+{% extends "cs3300_project/base_template.html" %}
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <table class="table-auto">
+        {{ form.as_table }}
+    </table>
+    <button type="submit" class="btn btn-neutral" value="Submit">Submit</button>
+</form>
+{% endblock %}
