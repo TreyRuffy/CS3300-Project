@@ -102,7 +102,7 @@ def register(request: HttpRequest):
             user = form.save()
             Account.objects.create(user=user)
             messages.success(request, 'Account created successfully')
-            return login(request)
+            return redirect('login')
     context = {
         'active': 'Register',
         'form': form,

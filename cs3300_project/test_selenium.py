@@ -1,9 +1,9 @@
-from django.test import TestCase
+from django.test import LiveServerTestCase, TestCase
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
-class SeleniumTesting(TestCase):
+class SeleniumTesting(LiveServerTestCase):
     def test_create_horse(self):
         service = Service()
         options = webdriver.ChromeOptions()
@@ -11,9 +11,9 @@ class SeleniumTesting(TestCase):
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         driver = webdriver.Chrome(service=service, options=options)
-        driver.get("http://127.0.0.1:8000/logout")
+        driver.get(self.live_server_url + "/logout")
         driver.implicitly_wait(0.5)
-        driver.get("http://127.0.0.1:8000/login")
+        driver.get(self.live_server_url + "/login")
         driver.implicitly_wait(0.5)
         driver.set_window_size(787, 816)
         driver.find_element(By.CSS_SELECTOR, ".h-5").click()
@@ -30,15 +30,10 @@ class SeleniumTesting(TestCase):
         driver.implicitly_wait(0.5)
     
     def test_delete_horse(self):
-        service = Service()
-        options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
-        driver = webdriver.Chrome(service=service, options=options)
-        driver.get("http://127.0.0.1:8000/logout")
+        driver = webdriver.Chrome()
+        driver.get(self.live_server_url + "/logout")
         driver.implicitly_wait(0.5)
-        driver.get("http://127.0.0.1:8000/login")
+        driver.get(self.live_server_url + "/login")
         driver.implicitly_wait(0.5)
         driver.set_window_size(787, 816)
         driver.find_element(By.CSS_SELECTOR, ".h-5").click()
