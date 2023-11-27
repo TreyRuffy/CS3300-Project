@@ -23,21 +23,19 @@
             </label>
             <input type="password" name="password" placeholder="Enter your password" class="input input-bordered" required />
             {{ form.password.errors }}
-            <label class="label">
-              <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-            </label>
-            <label class="label">
-              <a href="{% url 'register' %}" class="label-text-alt link link-hover">Don't have an account?</a>
-            </label>
           </div>
           {% for message in messages %}
-            <div class="alert alert-error">
+            <div class="mt-2 alert alert-error">
               {{ message }}
             </div>
           {% endfor %}
           <div class="form-control mt-6">
             <button class="btn btn-primary">Login</button>
           </div>
+          <label class="label">
+            <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+            <a href="{% url 'register' %}" class="label-text-alt link link-hover">Don't have an account?</a>
+          </label>
         </form>
       </div>
     </div>

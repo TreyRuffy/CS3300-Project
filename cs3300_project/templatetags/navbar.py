@@ -9,11 +9,11 @@ navbar_items = [
     },
     {
         'title': 'About',
-        'url': 'about'
+        'url': '/about'
     },
     {
         'title': 'Contact',
-        'url': 'contact'
+        'url': '/contact'
     },
     {
         'title': 'Horses',
@@ -21,15 +21,15 @@ navbar_items = [
         'children': [
             {
                 'title': 'Add Horse',
-                'url': 'add_horse'
+                'url': '/add_horse'
             },
             {
                 'title': 'Edit Horse',
-                'url': 'edit_horse'
+                'url': '/edit_horse'
             },
             {
                 'title': 'Delete Horse',
-                'url': 'delete_horse'
+                'url': '/delete_horse'
             }
         ]
     },
@@ -39,15 +39,15 @@ navbar_items = [
         'children': [
             {
                 'title': 'Login',
-                'url': 'login'
+                'url': '/login'
             },
             {
                 'title': 'Logout',
-                'url': 'logout'
+                'url': '/logout'
             },
             {
                 'title': 'Register',
-                'url': 'register'
+                'url': '/register'
             }
         ]
     }

@@ -37,12 +37,13 @@
             </label>
             <input type="password" name="password2" placeholder="Enter your password" class="input input-bordered" required />
             {{ form.password2.errors }}
-            <label class="label">
-              <a class="label-text-alt link link-hover" href="{% url 'login' %}">Already have an account?</a>
           </div>
           <div class="form-control mt-6">
             <button class="btn btn-primary">Create</button>
           </div>
+          <label class="label">
+            <a class="label-text-alt link link-hover text-center m-auto" href="{% url 'login' %}">Already have an account?</a>
+          </label>
         </form>
       </div>
     </div>
