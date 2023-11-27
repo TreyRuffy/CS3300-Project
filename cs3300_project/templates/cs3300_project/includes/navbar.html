@@ -49,6 +49,8 @@
         {% endfor %}
       </ul>
       <button class="btn glass btn-sm" data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">Theme</button>
+      {% if user.is_authenticated %}
       <span class="mx-2">{{username}}</span>
+      {% endif %}
     </div>
   </div>

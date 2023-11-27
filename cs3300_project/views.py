@@ -9,7 +9,6 @@ from .models import Horse, Account
 from .forms import LoginForm
 
 # Create your views here.
-@login_required(login_url='login')
 def index(request: HttpRequest):
     context = {
         'horses': Horse.objects.all(),

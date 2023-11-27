@@ -1,10 +1,14 @@
 from django.test import TestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import chromedriver_autoinstaller
+import sys
 
 class SeleniumTesting(TestCase):
     def setUp(self):
         print(f"Testing create and delete horse")
+        if sys.platform not in ['win32', 'cygwin', 'msys', 'win']:
+            chromedriver_autoinstaller.install()
 
     def test_create_horse(self):
         driver = webdriver.Chrome()
